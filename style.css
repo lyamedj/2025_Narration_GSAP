@@ -1,0 +1,56 @@
+/* Commun Design --------------- */
+*{
+    margin: 0px;
+    padding: 0px;
+    
+}
+
+/* Variable --------------- */
+/* Typhography --------------- */
+
+h1,h2,h3{
+    font-family: "Caesar Dressing", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+}
+
+/* Page Design --------------- */
+
+body{
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.intro{
+    min-height: 100px;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+
+}
+
+.imageFond{
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.titleFuture{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    color: white;
+    font-size: 50px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.396);
+}
+
