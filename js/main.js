@@ -1,12 +1,32 @@
 /** GSAP Plugins */
+
 gsap.registerPlugin(ScrollTrigger, Observer, ScrollToPlugin, Draggable, MotionPathPlugin);
 
+/** Variable ------------ */
 
-/** GSAP Animation - S1 -  */
-gsap.to("#algerie",{
-    x: 100,
-    rotation: 90,
-    duration: 1,
-})
 
-gsap.to
+// Ouvrir le pop up
+
+function ouvrirPopup() {
+    document.getElementById('popup').style.display="flex"
+}
+
+// Fermer le popup
+
+function fermerPopup() {
+    document.getElementById('popup').style.display="none"
+}
+
+// Quand on clique sur Lire bio
+
+document.getElementById("bioLien").onclick = function(){
+    ouvrirPopup()
+    return false;
+}
+
+
+// Quand je clique sur la croix
+
+document.getElementById("fermerPopup").onclick = function() {
+    fermerPopup()
+}

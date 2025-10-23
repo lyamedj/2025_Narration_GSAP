@@ -4,18 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demo GSAP</title>
-
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Caesar+Dressing&family=Do+Hyeon&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Caesar+Dressing&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Onest:wght@100..900&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="style.css">
+</head>
 
 </head>
 <body>
+    <!-- Section Accueil ---------------------- -->
+  <section class="futureIntro">
     <div class="intro">
-        <h1 class="titleFuture">FUTURE, THE WIZARD</h1>
-        <img class="imageFond" src="assets/img/futurefond1.jpg" alt="">
+      <h1 class="titleFuture">FUTURE</h1>
+      <p class="bioFuture">
+        Future, rappeur influent qui figure dans les hit-parades, est connu pour son style vocal unique, fluide et mélodique, bien que marmonné. 
+        Il est sorti du Sud à l'aube des années 2010 avec une flopée de mixtapes, d'albums à succès, de singles certifiés platine et de contributions à plusieurs autres...
+      </p>
+      <p id="bioLien" onclick='ouvrirPopup()'>Lire la biographie →</p>
+
+      <div class="actions">
+        <a href="https://open.spotify.com/intl-fr/artist/1RyvyyTE3xzB2ZywiAwp0i?si=2Ay9CUPcQFK-aP2r0K6BBA" class="button">Écouter l’artiste ↗</a>
+        <div class="socials">
+          <a href="#"><i class="media instagram"></i></a>   
+          <a href="#"><i class="media youtube"></i></a>
+          <a href="#"><i class="media tiktok"></i></a>
+        </div>
+      </div>
     </div>
-    <link rel="stylesheet" href="style.css">
+
+    <!-- Biographie complete ---------------------- -->
+    <div id="popup">
+      <div id="bioContent">
+        <button id="fermerPopup">x</button>
+        <h2 class="titreBio">Biographie complète</h2>
+        <p>
+          Future, rappeur influent qui figure dans les hit-parades, est connu pour son style vocal unique, fluide et mélodique, bien que marmonné. 
+          Il est sorti du Sud à l'aube des années 2010 avec une flopée de mixtapes, d'albums à succès, de singles certifiés platine et de contributions à plusieurs autres hits en tant qu'artiste invité, 
+          puis a continué à se maintenir au sommet de son art, tant sur le plan commercial que créatif, dans les années qui ont suivi. 
+          Après avoir obtenu son premier succès en tant qu'invité sur le titre « Racks » de YC (2011), Future est rapidement devenu l'un des artistes les plus populaires de la planète. 
+          (2011), Future est rapidement devenu un facteur clé de l'emprise d'Atlanta sur les classements du Billboard, souvent avec le soutien de la production d'autres natifs et habitants d'ATL tels que Metro Boomin, Mike WiLL Made-It, Sonny Digital et Southside. 
+          À la fin de l'année 2017, Future avait accumulé 32 succès R&B/hip-hop dans le Top 10 en tant que tête d'affiche et artiste principal. Entre-temps, 11 projets complets - dont DS2 (2015), Evol (2016) et Future (2017), 
+          tous disques de platine - ont fait leurs débuts dans le Top 5 du Billboard 200. Future a terminé les années 2010 en ajoutant à son palmarès le titre « King's Dead », récompensé par un Grammy, en coproduisant un remake de Super Fly et en atteignant à nouveau le sommet du Billboard 200 avec The Wizrd (2019). 
+          Il est depuis revenu sur le trône avec plusieurs projets, notamment High Off Life (2020), WE DON'T TRUST YOU/WE STILL DON'T TRUST YOU (avec Metro Boomin, 2024) et Mixtape Pluto (2024).
+        </p>
+      </div>
+    </div>
+    
+
+
+    <div class="image">
+      <img src="assets/img/futurefond1.jpg" alt="Future">
+    </div>
+  </section>
+
 
     <!-- GSAP ---------------------- -->
      <script src="js/GSAP/gsap.min.js"></script>
