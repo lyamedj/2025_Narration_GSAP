@@ -14,11 +14,21 @@ h1{
     letter-spacing: -2px;
 }
 
-h3,h2{
+h2{
     font-family: "Inter", sans-serif;
     font-weight: 400;
     font-style: normal;
     color: rgb(162, 162, 162);
+    font-size: 30px;
+}
+
+h3{
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    color: rgb(0, 0, 0);
+    font-size: 40px;
+
 }
 
 p,a{
@@ -193,9 +203,82 @@ body {
   transition: 0.3s;
 }
 
-.fermerPopup:hover {
-  color: #5b5b5b;
+
+/* Discographie --------------- */
+
+.discographie{
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 80px 0;
+    overflow: hidden;
 }
+
+.titreSection{
+    font-family: "Inter", sans-serif;
+    font-size: 55px;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+}
+
+.carrousel{
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.albums{
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    width: max-content;
+    padding: 15px;
+}
+
+.album{
+    flex: 0 0 auto; /* chaque album gardera sa largeur */
+    max-width: 240px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.album img{
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.album p{
+    margin-top: 10px;
+    font-family: "Inter", sans-serif;
+    color: #000000;
+    font-size: 16px;
+}
+
+.navButton{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.navButton button{
+    background: none;
+    border: 1px solid rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
 
 /* Animation --------------- */
 
@@ -211,7 +294,20 @@ body {
     opacity: 0.7;
 }
 
-.closeBio:hover{
-    color: white;
+/* Bio close Animation --------------- */
+
+.fermerPopup:hover {
+  color: #5b5b5b;
 }
 
+/* Animation Carousel --------------- */
+
+.album:hover{
+    transform: scale(1.05);
+    z-index: 100;
+}
+
+.navButton button:hover{
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+}
