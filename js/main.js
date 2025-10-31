@@ -2,6 +2,8 @@
 
 gsap.registerPlugin(ScrollTrigger, Observer, ScrollToPlugin, Draggable, MotionPathPlugin);
 
+/** POP-UP BIO */
+
 // Ouvrir le pop up
 
 function ouvrirPopup() {
@@ -21,12 +23,13 @@ document.getElementById("bioLien").onclick = function(){
     return false;
 }
 
-
 // Quand je clique sur la croix
 
 document.getElementById("fermerPopup").onclick = function() {
     fermerPopup()
 }
+
+/** CARROUSEL */
 
 /** Variables de base du Carrousel ------------ */
 
@@ -75,3 +78,34 @@ function allerGauche() {
 
 boutonSuivant.onclick = allerDroite;
 boutonPrecedent.onclick = allerGauche;
+
+/** CLIPS & VIDÉOS */
+
+// Animation d'apparition du Titre
+
+gsap.from(".clips .titreSection", {
+    scrollTrigger: {
+        trigger: ".clips .titreSection",
+        start: "top 90%",
+    },
+    opacity: 0,
+    y: 40,
+    duration: 1,
+    ease: "power2.out"
+})
+
+// Animation d'apparition des clips
+
+gsap.utils.toArray('.clip').forEach((clip, i) => {
+    gsap.from(clip, { // chaque clip va s'animer lorsqu'elle apparait dans l'ecran
+        scrollTrigger: {
+            trigger: clip, start: "top 85%", // l'animation débutera donc a 85% de la hauteur
+            toggleActions: "play none none reverse" //pour jouer l'animation quand elle entre et rejoue quand elle sort
+        },
+        opacity: 0, // commencera invisible
+        y: 80,
+        duration: 1,
+        delay: i * 0.15, // effet de cascade progressif
+        ease: "power3.out"
+    })
+})
