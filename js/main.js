@@ -52,32 +52,39 @@ var totalAlbums = albums.children.length;
 // Fonction du carrousel
 
 function allerDroite() {
-    position -= decalage;
+    position -= decalage; // ca va décalé la position vers la gauche
 
     // si je dépasse la moitié vu qu'on a dupliquer 
-    if (Math.abs(position) >= (totalAlbums / 2) * decalage) {
+    if (Math.abs(position) >= (totalAlbums / 2) * decalage) { // on remet donc a la position initale pour recommencer et pour Math.abs celui-ci sert a obtenir une valeur absolu d'un nombre (https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Math/abs)
         position = 0;
-        gsap.set(albums, {x: position});
+        gsap.set(albums, {x: position}); // ca va permettre de repositionner instantanement les albums (https://gsap.com/docs/v3/GSAP/gsap.set()/)
         position -= decalage
     }
-
-    gsap.to(albums, { x:position, duration: 0.6, ease: "power2.out" }); // le power2 va me créer une animation qui va démarrer vite et finir lentement (https://gsap.com/docs/v3/Eases/)
+    // Animation qui sera fluide lors du déplacement 
+    gsap.to(albums, { 
+        x:position, 
+        duration: 0.6, 
+        ease: "power2.out" }); // le power2 va me créer une animation qui va démarrer vite et finir lentement (https://gsap.com/docs/v3/Eases/)
 }
 
+// Celle-la est donc dans le sens inverse 
 function allerGauche() {
     position += decalage;
 
     if (position > 0){
         position = -((totalAlbums / 2) * decalage);
         gsap.set(albums, {x: position});
-        position += decalage
+        position += decalage // reprend le mouement normalement
     }
 
-    gsap.to(albums, { x:position, duration: 0.6, ease: "power2.out" }); // le power2 va me créer une animation qui va démarrer vite et finir lentement (https://gsap.com/docs/v3/Eases/)
+    gsap.to(albums, { 
+        x:position, 
+        duration: 0.6, 
+        ease: "power2.out" }); // le power2 va me créer une animation qui va démarrer vite et finir lentement (https://gsap.com/docs/v3/Eases/)
 }
 
-boutonSuivant.onclick = allerDroite;
-boutonPrecedent.onclick = allerGauche;
+boutonSuivant.onclick = allerDroite; // clic suivant défile donc a droite
+boutonPrecedent.onclick = allerGauche;// et celui la précedent donc a gauche
 
 /** CLIPS & VIDÉOS */
 
@@ -86,11 +93,14 @@ boutonPrecedent.onclick = allerGauche;
 gsap.from(".clips .titreSection", {
     scrollTrigger: {
         trigger: ".clips .titreSection",
-        start: "top 90%",
+        start: "top 90%", // animation qui commence quand le haut de l'élément atteint 90% de la hauteur de fenetre 
     },
+
+    // Cela sera l'état de départ de l'animation
     opacity: 0,
-    y: 40,
-    duration: 1,
+    y: 40, // décalé de 40px vers le bas
+
+    duration: 1, // animation qui durera 1 seconde
     ease: "power2.out"
 })
 
@@ -155,16 +165,16 @@ function showIntro() {
 // Afficher question
 
 function showQuestion(i) {
-    toutCacher();
+    toutCacher(); // permet de ne pas faire apparaitre toute les questions d'un coup
     const q = questions[i]; // le i va gerer l'affichage de la question dans le quiz puis la const va me permettre de recuperer la question 
-    if (!q) return showResultat();
+    if (!q) return showResultat(); // les [] permettent d'acceder a un tableau exemple la le i changera a chaque étape du quiz (https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array)
 
-    q.classList.add("active");
-    locked = false;
+    q.classList.add("active"); 
+    locked = false; // permet de déverrouiller les reponses et donc permet de cliquer a nouveau
 
     gsap.fromTo(q, { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" });
 
-    q.querySelectorAll(".option img").forEach((img) => {
+    q.querySelectorAll(".option img").forEach((img) => { // on va séléctionner toute les images qui seront en options pour la question actuelle (q), et forEach() va permettre de parcourir chaque image pour leur appliquer une action (https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
         img.onclick = () => {
             if (locked) return;
             locked = true;
@@ -211,7 +221,10 @@ function showResultat() {
     }
     resultatText.textContent = message + " (" + score + "/5)";
 
-    gsap.fromTo(resultatBloc, { opacity: 0, scale: 0.92 }, { opacity: 1, scale: 1, duration: 0.8, ease: "power3.out" });
+    gsap.fromTo(resultatBloc, { 
+        opacity: 0, 
+        scale: 0.92 }, 
+        { opacity: 1, scale: 1, duration: 0.8, ease: "power3.out" });
 }
 
 // Rejouer
