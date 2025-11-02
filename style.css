@@ -349,6 +349,99 @@ body {
     transition: transform 0.3s ease;
 }
 
+/* QUIZ --------------- */
+
+.quiz{
+    background: #fff;
+    color: #000;
+    text-align: center;
+    padding: 80px;
+    transition: background 0.3s ease;
+}
+
+.quiz .titreSection{
+    font-family: "Inter", sans-serif;
+    font-size: 55px;
+    margin-bottom: 50px;
+    letter-spacing: 2px;
+    color: #000;
+}
+
+.quizContenu, .introQuizActive, .question, .quizResultat {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.introQuizActive, .question, .quizResultat{
+    display: none;
+}
+
+.introQuizActive.active, .question.active, .quizResultat.active{
+    display: block;
+}
+
+.introQuizActive p{
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.question h4{
+    font-family: "Inter", sans-serif;
+    font-size: 26px;
+    margin-bottom: 28px;
+    font-weight: 600;
+    color: #000;
+}
+
+.choix{
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+.option{
+    text-align: center;
+}
+
+.option img{
+    width: 220px;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: transform 0.25s ease, opacity 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    border: 3px solid transparent;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.option p{
+    margin-top: 10px;
+    font-family: "Inter", sans-serif;
+    font-size: 15px;
+    color: #444;
+}
+
+button{
+    margin-top: 28px;
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 12px 28px;
+    border-radius: 28px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.quizResultat h4{
+    font-size: 28px;
+    margin-bottom: 18px;
+    font-weight: 600;
+    color: #000;
+}
+
 /* Animation --------------- */
 
 #bioLien:hover{
@@ -400,3 +493,220 @@ body {
     transform: scale(1.1);
 }
 
+/* Animation Quiz --------------- */
+
+.option img:hover{
+    transform: scale(1.05);
+    opacity: 0.9;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+button:hover{
+    background: #333;
+}
+
+button:active{
+    transform: scale(0.98);
+}
+
+
+/* Responsive --------- */
+
+@media (max-width: 768px) { /* je n'arrivais a rendre ca bien qu'avec un portrait tablette */
+
+    body {
+        overflow-x: hidden;
+    }
+
+    h1 {
+        font-size: 40px;
+        letter-spacing: -1px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    h3 {
+        font-size: 28px;
+    }
+
+    p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    /* Section intro */
+
+    .futureIntro {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        height: auto;
+        padding: 100px 20px;
+    }
+
+    .intro {
+        max-width: 100%;
+        padding-left: 0;
+        padding-top: 50px;
+    }
+
+    .titleFuture {
+        font-size: 48px;
+    }
+
+    .bioFuture {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+
+    .actions {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .socials {
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .image {
+        object-position: center;
+        filter: brightness(50%);
+    }
+
+    /* Popup bio */
+
+    #popup {
+        align-items: flex-start;
+        justify-content: center;
+        padding: 60px 15px;
+    }
+
+    #bioContent {
+        width: 100%;
+        max-height: 80vh;
+        max-width: 500px;
+        overflow-y: auto;
+        padding: 25px 22px;
+        margin-top: 80px;
+        border-radius: 14px;
+        font-size: 5px;
+        line-height: 1.6;
+        transform: none;
+    }
+
+    #bioContent::-webkit-scrollbar { /* cela va permettre de crée une barre de défilement (https://developer.mozilla.org/en-US/docs/Web/CSS/::-webkit-scrollbar) */
+        width: 6px;
+    }
+
+    .titreBio {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    #fermerPopup {
+        top: 10px;
+        right: 14px;
+        font-size: 22px;
+    }
+
+    /* Discographie */
+
+    .discographie {
+        padding: 60px 20px;
+    }
+
+    .titreSection {
+        font-size: 38px;
+    }
+
+    .carrousel {
+        padding: 10px;
+    }
+
+    .albums {
+        gap: 25px;
+    }
+
+    .album {
+        max-width: 150px;
+    }
+
+    .album p {
+        font-size: 14px;
+    }
+
+    .navButton button {
+        font-size: 20px;
+        padding: 6px 12px;
+    }
+
+    /* Clips */
+
+    .clips {
+        padding: 60px 20px;
+    }
+
+    .clips .titreSection {
+        font-size: 38px;
+        margin-bottom: 40px;
+    }
+
+    .clipsContenant {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .clip {
+        max-width: 100%;
+    }
+
+    .clip img {
+        border-radius: 20px;
+    }
+
+    /* Quiz */
+    .quiz {
+        padding: 60px 20px;
+    }
+
+    .quiz .titreSection {
+        font-size: 38px;
+        margin-bottom: 30px;
+    }
+
+    .question h4 {
+        font-size: 20px;
+    }
+
+    .choix {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .option img {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .option p {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    .quizResultat h4 {
+        font-size: 22px;
+    }
+
+}
